@@ -70,7 +70,7 @@ gulp.task('html', ['styles', 'scripts'], function () {
 
 gulp.task('images', function () {
     return gulp.src('app/images/**/*')
-        .pipe(gulp.dest('../images'))
+        .pipe(gulp.dest('../bem-vindo/images'))
         .pipe($.size());
 });
 
@@ -78,17 +78,17 @@ gulp.task('fonts', function () {
     return $.bowerFiles()
         .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
         .pipe($.flatten())
-        .pipe(gulp.dest('../fonts'))
+        .pipe(gulp.dest('../bem-vindo/fonts'))
         .pipe($.size());
 });
 
 gulp.task('extras', function () {
     gulp.src(['app/data/**/*'])
-        .pipe(gulp.dest('../data'));
+        .pipe(gulp.dest('../bem-vindo/data'));
 
     return gulp
         .src(['app/*.*', '!app/*.html'], { dot: true })
-        .pipe(gulp.dest('../'));
+        .pipe(gulp.dest('../bem-vindo/'));
 });
 
 gulp.task('clean', function () {
