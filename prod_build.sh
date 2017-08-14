@@ -6,6 +6,8 @@ APPLICATION_NAME=Sistema VC_MCR
 API_URL=http://zup.mcr.pr.gov.br:8282
 WEB_APP_LINK=http://zup.mcr.pr.gov.br/web
 
+rm -rf ../bem-vindo/*
+
 gulp
 
 # sed -i '' "s@CITY_NAME@$CITY_NAME@g" ../index.html
