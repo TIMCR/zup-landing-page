@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 NODE_ENV=production
 CITY_NAME=Marechal\ Cândido\ Rondon
-PAGE_TITLE=VC_MCR
+PAGE_TITLE=VC\_MCR
 APPLICATION_NAME=Sistema VC_MCR
 API_URL=http://zup.mcr.pr.gov.br:8282
 WEB_APP_LINK=http://zup.mcr.pr.gov.br/web
+
+git pull
 
 rm -rf ../bem-vindo/*
 
