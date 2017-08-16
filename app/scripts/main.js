@@ -67,7 +67,7 @@ $(function() {
 
         $.each(data.flags, function(i, v) {
           if (v.name == "stats") {
-            statsValue = String(v.status_name);
+            statsValue = String(v.status);
             return;
           }
         });
