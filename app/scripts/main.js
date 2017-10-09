@@ -47,7 +47,7 @@ $(function() {
   });
 
   /* Get stats */
-  var apiUrl = 'http://zup.mcr.pr.gov.br:8282';
+  var apiUrl = 'http://192.168.1.34:8282';
 
   if(apiUrl.charAt(apiUrl.length - 1) !== '/') {
       apiUrl += '/';
