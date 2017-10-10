@@ -31,7 +31,14 @@ gulp.task('replace-tmp', ['prepare-tmp', 'styles'], function(){
         .pipe($.replace('CITY_NAME', 'São Paulo'))
         .pipe(gulp.dest('.tmp/'));
 
-    return merge(css, js, html);
+    var php = gulp.src('.tmp/*.php')
+        .pipe($.replace('TERMS_AND_CONDITIONS_HTML', '<h1>Terms and conditions</h1>'))
+        .pipe($.replace('APPLICATION_NAME', 'ZUP'))
+        .pipe($.replace('PAGE_TITLE', 'ZUP - Landing Page'))
+        .pipe($.replace('CITY_NAME', 'São Paulo'))
+        .pipe(gulp.dest('.tmp/'));
+
+    return merge(css, js, html, php);
 });
 
 gulp.task('styles', function () {
@@ -53,6 +60,19 @@ gulp.task('scripts', function () {
 gulp.task('html', ['styles', 'scripts'], function () {
     var jsFilter = $.filter('**/*.js');
     var cssFilter = $.filter('**/*.css');
+
+    gulp.src('app/*.php')
+        .pipe($.useref.assets({searchPath: '{.tmp,app}'}))
+        .pipe(jsFilter)
+        .pipe($.uglify())
+        .pipe(jsFilter.restore())
+        .pipe(cssFilter)
+        .pipe($.csso())
+        .pipe(cssFilter.restore())
+        .pipe($.useref.restore())
+        .pipe($.useref())
+        .pipe(gulp.dest('../bem-vindo/'))
+        .pipe($.size());
 
     return gulp.src('app/*.html')
         .pipe($.useref.assets({searchPath: '{.tmp,app}'}))
@@ -85,6 +105,9 @@ gulp.task('fonts', function () {
 gulp.task('extras', function () {
     gulp.src(['app/data/**/*'])
         .pipe(gulp.dest('../bem-vindo/data'));
+
+    gulp.src(['app/*.*', '!app/*.php'], { dot: true })
+        .pipe(gulp.dest('../bem-vindo/'));
 
     return gulp
         .src(['app/*.*', '!app/*.html'], { dot: true })
@@ -129,6 +152,13 @@ gulp.task('wiredep', function () {
         }))
         .pipe(gulp.dest('app/styles'));
 
+    gulp.src('app/*.php')
+        .pipe(wiredep({
+            directory: 'app/bower_components',
+            exclude: ['bootstrap-sass-official']
+        }))
+        .pipe(gulp.dest('app'));
+
     gulp.src('app/*.html')
         .pipe(wiredep({
             directory: 'app/bower_components',
@@ -143,6 +173,7 @@ gulp.task('watch', ['connect', 'serve'], function () {
     // watch for changes
 
     gulp.watch([
+        'app/*.php',
         'app/*.html',
         '.tmp/styles/**/*.css',
         'app/scripts/**/*.js',
