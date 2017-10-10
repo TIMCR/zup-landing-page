@@ -334,7 +334,6 @@ function IsIPInternal(){
 <script src="bower_components/jquery.imgpreload/jquery.imgpreload.min.js"></script>
 <!-- endbuild -->
 
-<!-- build:js scripts/main.js -->
 <script>
 <?php if(IsIPInternal()) { ?>
   apiUrl = 'http://192.168.1.34:8383';
@@ -342,6 +341,7 @@ function IsIPInternal(){
   apiUrl = 'http://187.86.59.11:8282';
 <?php } ?>
 </script>
+<!-- build:js scripts/main.js -->
 <script src="scripts/main.js"></script>
 <!-- endbuild -->
 </body>

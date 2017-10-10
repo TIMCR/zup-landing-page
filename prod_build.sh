@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 NODE_ENV=production
 CITY_NAME=Marechal\ Cândido\ Rondon
-PAGE_TITLE=VC\_MCR
+PAGE_TITLE=VcMCR
 APPLICATION_NAME=Sistema VcMCR
 API_URL=http://192.168.1.34:8282
 WEB_APP_LINK=http://192.168.1.33/web
