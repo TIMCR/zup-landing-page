@@ -80,7 +80,7 @@ function IsIPInternal(){
                 <h6>Para celular e tablet Android</h6>
               </div><!--/.android -->
               <div class="col-xs-4 web has-web-app-link">
-                <?php if(IsIPInternal()) { ?><a href="http://192.168.1.33/web" target="_blank" alt="Acesse daqui mesmo, cadastre-se"></a><?php }else{ ?><a href="http://187.86.59.11/web" target="_blank" alt="Acesse daqui mesmo, cadastre-se"></a><?php } ?>
+                <?php if(IsIPInternal()) { ?><a href="http://192.168.1.33/web" target="_blank" alt="Acesse daqui mesmo, cadastre-se"></a><?php }else{ ?><a href="http://187.86.59.11/web-cidadao" target="_blank" alt="Acesse daqui mesmo, cadastre-se"></a><?php } ?>
                   <h6>Direto no seu navegador</h6>
               </div><!--/.web -->
             </div><!--/.platforms -->
@@ -272,7 +272,7 @@ function IsIPInternal(){
 
         <p>1.  O VcMCR tomará todas as medidas possíveis para manter a confidencialidade e a segurança da plataforma. No entanto, o VcMCR  não responderá por prejuízos que possam ser derivados da violação dessas medidas por parte de terceiros que subveram os sistemas de segurança para acessar as informações de Usuários.</p>
 
-        <p><i><strong>2. O Município de Marechal Cândido Rondon poderá fazer o tratamento e uso dos dados pessoais e informações coletadas a partir da utilização do VcBC dos seus Usuários para geração de estatísticas e envio de comunicações oficiais do Município.</strong></i></p>
+        <p><i><strong>2. O Município de Marechal Cândido Rondon poderá fazer o tratamento e uso dos dados pessoais e informações coletadas a partir da utilização do VcMCR dos seus Usuários para geração de estatísticas e envio de comunicações oficiais do Município.</strong></i></p>
 
         <h3>F. Violação no Sistema ou na Base de Dados</h3>
 
@@ -336,7 +336,7 @@ function IsIPInternal(){
 
 <script>
 <?php if(IsIPInternal()) { ?>
-  apiUrl = 'http://192.168.1.34:8383';
+  apiUrl = 'http://192.168.1.34:8282';
 <?php } else { ?>
   apiUrl = 'http://187.86.59.11:8282';
 <?php } ?>
