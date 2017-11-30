@@ -1,21 +1,3 @@
-<?php
-function IsIPInternal(){
-  if(
-    !(ip2long($_SERVER["REMOTE_ADDR"]) > ip2long("192.168.1.0") && ip2long($_SERVER["REMOTE_ADDR"]) < ip2long("192.168.1.255")) &&
-    !(ip2long($_SERVER["REMOTE_ADDR"]) > ip2long("192.168.2.0") && ip2long($_SERVER["REMOTE_ADDR"]) < ip2long("192.168.2.255")) &&
-    !(ip2long($_SERVER["REMOTE_ADDR"]) > ip2long("192.168.3.0") && ip2long($_SERVER["REMOTE_ADDR"]) < ip2long("192.168.3.255")) &&
-    !(ip2long($_SERVER["REMOTE_ADDR"]) > ip2long("192.168.4.0") && ip2long($_SERVER["REMOTE_ADDR"]) < ip2long("192.168.4.255")) &&
-    !(ip2long($_SERVER["REMOTE_ADDR"]) > ip2long("192.168.5.0") && ip2long($_SERVER["REMOTE_ADDR"]) < ip2long("192.168.5.255")) &&
-    !(ip2long($_SERVER["REMOTE_ADDR"]) > ip2long("192.168.6.0") && ip2long($_SERVER["REMOTE_ADDR"]) < ip2long("192.168.6.255")) &&
-    !(ip2long($_SERVER["REMOTE_ADDR"]) > ip2long("192.168.7.0") && ip2long($_SERVER["REMOTE_ADDR"]) < ip2long("192.168.7.255")) &&
-    !(ip2long($_SERVER["REMOTE_ADDR"]) > ip2long("192.168.8.0") && ip2long($_SERVER["REMOTE_ADDR"]) < ip2long("192.168.8.255"))
-  ){
-    return false;
-  }else{
-    return true;
-  }
-}
-?>
 <html class="no-js">
 <head>
   <meta charset="utf-8">
@@ -71,16 +53,16 @@ function IsIPInternal(){
             <h1>Participe da gestão da sua cidade</h1>
             <h3>Acesse o aplicativo VcMCR e colabore com o Município de Marechal Cândido Rondon a tornar sua administração cada vez mais inteligente e participativa.</h3>
             <div class="platforms">
-              <div class="col-xs-4 ios has-ios-app-link">
+<!--              <div class="col-xs-4 ios has-ios-app-link">
                 <a href="IOS_APP_LINK" target="_blank" alt="Disponível na App Store"></a>
                 <h6>Para iPhone e iPad</h6>
               </div><!--/.ios -->
-              <div class="col-xs-4 android has-android-app-link">
+              <div class="col-xs-6 android has-android-app-link">
                 <a href="ANDROID_APP_LINK" target="_blank" alt="Disponível no Google Play"></a>
                 <h6>Para celular e tablet Android</h6>
               </div><!--/.android -->
-              <div class="col-xs-4 web has-web-app-link">
-                <?php if(IsIPInternal()) { ?><a href="http://192.168.1.33/web" target="_blank" alt="Acesse daqui mesmo, cadastre-se"></a><?php }else{ ?><a href="http://187.86.59.11/web-cidadao" target="_blank" alt="Acesse daqui mesmo, cadastre-se"></a><?php } ?>
+              <div class="col-xs-6 web has-web-app-link">
+               	<a href="http://vc.mcr.pr.gov.br/web" target="_blank" alt="Acesse daqui mesmo, cadastre-se"></a>
                   <h6>Direto no seu navegador</h6>
               </div><!--/.web -->
             </div><!--/.platforms -->
@@ -335,11 +317,7 @@ function IsIPInternal(){
 <!-- endbuild -->
 
 <script>
-<?php if(IsIPInternal()) { ?>
-  apiUrl = 'http://192.168.1.34:8282';
-<?php } else { ?>
-  apiUrl = 'http://187.86.59.11:8282';
-<?php } ?>
+  apiUrl = 'http://vc.mcr.pr.gov.br:8282';
 </script>
 <!-- build:js scripts/main.js -->
 <script src="scripts/main.js"></script>

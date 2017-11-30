@@ -3,8 +3,8 @@ NODE_ENV=production
 CITY_NAME=Marechal\ Cândido\ Rondon
 PAGE_TITLE=VcMCR
 APPLICATION_NAME=Sistema VcMCR
-API_URL=http://192.168.1.34:8282
-WEB_APP_LINK=http://192.168.1.33/web
+API_URL=http://45.77.220.217:8282
+WEB_APP_LINK=http://45.77.220.217/web
 
 git pull
 
